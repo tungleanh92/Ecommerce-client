@@ -3,12 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.4.0",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "antd": "^4.16.1",
+    "axios": "^0.21.1",
+    "pnotify": "^5.2.0",
+    "react": "^16.14.0",
+    "react-color": "^2.19.3",
+    "react-dom": "^16.14.0",
+    "react-hook-form": "^7.6.7",
+    "react-masonry-css": "^1.0.16",
+    "react-redux": "^7.2.4",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-slick": "^0.28.1",
+    "react-spinners": "^0.11.0",
+    "redux": "^4.1.0",
+    "redux-thunk": "^2.3.0",
+    "slick-carousel": "^1.8.1",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -34,5 +48,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.13.13"
   }
 }

@@ -1,0 +1,171 @@
+/* ####################################################
+    :: Template Name: Essence - Fashion Ecommerce Template
+    :: Author: Colorlib
+    :: Author URL: https://colorlib.com
+    :: Description: Essence is smart & elegant fashion e-commerce Template. It's suitable for all e-commerce business platform.
+    :: Version: 1.0.0
+    :: Created: April 27, 2018
+    :: Last Updated: May 2, 2018
+    #################################################### */
+
+/* ---------------------------------------
+    ##### - PLACE YOUR CUSTOM CSS HERE - #####
+    --------------------------------------- */
+.my-masonry-grid {
+    display: -webkit-box; /* Not needed if autoprefixing */
+    display: -ms-flexbox; /* Not needed if autoprefixing */
+    display: flex;
+    margin-left: -30px; /* gutter size offset */
+    width: auto;
+}
+.my-masonry-grid_column {
+    padding-left: 30px; /* gutter size */
+    background-clip: padding-box;
+}
+
+/* Style your items */
+.my-masonry-grid_column > div {
+    /* change div to reference your elements you put in <Masonry> */
+    background: grey;
+    margin-bottom: 30px;
+}
+.search-wrapper-on {
+    top: 0;
+}
+.search-nav:hover {
+    cursor: pointer;
+}
+.ant-select {
+    border: none;
+    font-size: 14px;
+    font-weight: 400;
+    height: 40px;
+    padding-left: 0;
+    line-height: 40px;
+    margin: 0;
+    background-color: #f5f7fa;
+    border-radius: 0;
+    text-align: center !important;
+    min-width: 100px;
+}
+.ant-select-selection {
+    border: none;
+    font-size: 14px;
+    font-weight: 400;
+    height: 40px;
+    padding-left: 0;
+    line-height: 40px;
+    margin: 0;
+    background-color: #f5f7fa;
+    border-radius: 0;
+    text-align: center !important;
+    min-width: 100px;
+}
+.ant-select-selection__rendered {
+    padding-top: 6px;
+}
+.ant-input-number {
+    border: none;
+    font-size: 14px;
+    font-weight: 400;
+    height: 40px;
+    padding-left: 0;
+    line-height: 40px;
+    margin: 0;
+    background-color: #f5f7fa;
+    border-radius: 0;
+    text-align: center !important;
+    min-width: 100px;
+}
+.slick-slider:nth-child(2) .slick-current div img {
+    border: 2px solid #fbb710;
+}
+/* .ant-form-item-control-input-content {
+    background-color: #f5f7fa;
+    color: #6b6b6b;
+    font-size: 14px;
+    margin-left: 20px;
+} */
+.slick-slider:nth-child(1) img {
+    margin: 0 auto;
+}
+.slick-slider:nth-child(2) img {
+    margin: 0 auto;
+    height: 200px;
+}
+.errors {
+    color: orangered;
+    position: relative;
+    top: 9px;
+    left: 10px;
+    font-family: auto;
+}
+.single-product-wrapper .product-img {
+    height: 416px;
+}
+.ant-pagination-item-active {
+    color: #fff;
+    box-shadow: none;
+    background-color: #fbb710;
+    border: unset;
+}
+.catagories-menu li {
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+.catagories-menu li:hover {
+    cursor: pointer;
+    color: #fbb710;
+}
+.widget-desc ul li div.active {
+    border: 2px solid #fbb710;
+}
+.catagories-menu ul li.active {
+    color: #fbb710;
+}
+.ant-checkbox-wrapper {
+    margin-bottom: 10px;
+}
+.ant-checkbox-wrapper span:nth-child(2):hover {
+    color: #fbb710;
+}
+.ant-checkbox-wrapper span:nth-child(2) {
+    transition-duration: 500ms;
+    font-size: 16px;
+    color: #959595;
+    font-weight: 400;
+    cursor: pointer;
+}
+.halfRow {
+    display: inline-block;
+    width: calc(50% - 25px);
+}
+.mg-25 {
+    margin-right: 50px;
+}
+.ant-select-selector {
+    height: 60px;
+    border: none !important;
+    border-radius: 0;
+    background-color: #f5f7fa !important;
+    padding: 30px;
+    color: #6b6b6b;
+    font-size: 14px;
+}
+.ant-input {
+    height: 60px;
+    border: none;
+    border-radius: 0;
+    background-color: #f5f7fa !important;
+    padding: 30px;
+    color: #6b6b6b;
+    font-size: 14px;
+}
+.ant-select-selection-item {
+    text-align: left;
+    margin-top: 5px;
+}
+.ant-select-selection-placeholder {
+    text-align: left;
+    margin-top: 5px;
+}
