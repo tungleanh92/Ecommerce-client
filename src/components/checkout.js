@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { submitCartForm } from './../states/duck/submitCartForm/actions';
 import { updateCartSidebar } from './../states/duck/updateCartSidebar/actions';
-import PaypalImg from "../static/img/core-img/paypal.png";
 import { Select, Radio, Form, Input } from 'antd';
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+
 const { Option } = Select;
 
 const validateMessages = {
@@ -181,16 +182,27 @@ const Checkout = () => {
                                 <li><span>total:</span> <span>${totalPrice + DELIVERY_FEE}</span></li>
                             </ul>
 
-                            <div className="payment-method">
-                                <Radio.Group onChange={onSelectPayment} value={paymentOption}>
-                                    <Radio id="cod" value={"cod"}>Cash on Delivery</Radio>
-                                    <Radio id="paypal" value={"paypal"}>Paypal <img className="ml-15" src={PaypalImg} alt="" /></Radio>
-                                </Radio.Group>
-                            </div>
-
-                            <div className="cart-btn mt-100">
-                                <button onClick={() => form.submit()} className="btn amado-btn w-100">Checkout</button>
-                            </div>
+                            <PayPalScriptProvider
+                                options={{ "client-id": "AXIfte7SbZJn-b5KPgL7M0FYpUSaVWAOinLSKF2CjIDN2_xqxFobGh0BbrWuDZcW-OFoII7dIus_bJ3P" }}
+                            >
+                                <PayPalButtons
+                                    createOrder={(data, actions) => {
+                                        return actions.order.create({
+                                            purchase_units: [
+                                                {
+                                                    amount: {
+                                                        value: totalPrice + DELIVERY_FEE,
+                                                    },
+                                                },
+                                            ],
+                                        });
+                                    }}
+                                    onApprove={async (data, actions) => {
+                                        form.submit()
+                                        alert("Transaction completed!");
+                                    }}
+                                />
+                            </PayPalScriptProvider>
                         </div>
                     </div>
                 </div>
