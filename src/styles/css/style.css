@@ -11,6 +11,18 @@
 /* ---------------------------------------
     ##### - PLACE YOUR CUSTOM CSS HERE - #####
     --------------------------------------- */
+.tab-wrap {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 16px;
+    border: 1px solid rgba(0,0,0,.06);
+    border-radius: 2px;
+    transition: all .2s;
+}
+.login-warp {
+    margin: 200px auto;
+}
 .my-masonry-grid {
     display: -webkit-box; /* Not needed if autoprefixing */
     display: -ms-flexbox; /* Not needed if autoprefixing */

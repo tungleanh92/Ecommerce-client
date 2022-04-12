@@ -13,6 +13,8 @@ import Cart from "./components/cart";
 import Checkout from "./components/checkout";
 import Product from "./components/product";
 import Shop from "./components/shop/index";
+import ProductManage from "./components/admin/manage_product";
+import Login from "./components/admin/login";
 
 const App = () => {
 
@@ -22,9 +24,21 @@ const App = () => {
 
       <Router>
         <div className="main-content-wrapper d-flex clearfix">
-          <SideBar />
-
+          {window.location.pathname == '/admin' || window.location.pathname == '/login' ? (
+            <></>
+          ) : (
+            <SideBar />
+          )}
           <Switch>
+            <Route path="/admin">
+              <ProductManage />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/product-details">
+              <Product />
+            </Route>
             <Route path="/product-details">
               <Product />
             </Route>

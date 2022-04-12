@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import toggleSearchBar from './toggleSearchBar'
 import getProduct from './getProduct'
+import login from './login'
 import submitCartForm from './submitCartForm'
 import getCCB from './getCCB'
 import subscribeEmail from './subscribeEmail';
@@ -14,6 +15,7 @@ const appReducer = combineReducers({
     getCCB,
     subscribeEmail,
     addPopularPoint,
-    updateCartSidebar
+    updateCartSidebar,
+    login
 });
 export default appReducer;

@@ -6,15 +6,18 @@ import '@pnotify/core/dist/BrightTheme.css';
 const axios = require("axios");
 
 export const callApi = (url, method, data, success) => {
+    let token = localStorage.getItem("admin")
     return axios({
         url: `${constants.URL}/${url}`,
         method: method,
-        data: { data: data }
+        data: { data: data },
+        headers: { Authorization: token }
     })
         .then(function (res) {
             success(res.data)
         })
         .catch(function (err) {
+            console.log(err);
             if (err) {
                 if (
                     err.response &&

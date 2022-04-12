@@ -1,0 +1,11 @@
+export const DELETE_PRODUCT = "DELETE_PRODUCT"
+export const UPDATE_PRODUCT = "UPDATE_PRODUCT"
+export const UPDATE_BRAND = "UPDATE_BRAND"
+export const UPDATE_CATEGORY = "UPDATE_CATEGORY"
+export const UPDATE_COLOR = "UPDATE_COLOR"
+
+export const API_UPDATE_PRODUCT = "api/addOrChangeProduct"
+export const API_UPDATE_COLOR = "api/addOrChangeColor"
+export const API_UPDATE_CATEGORY = "api/addOrChangeCategory"
+export const API_UPDATE_BRAND = "api/addOrChangeBrand"
+export const API_DELETE_PRODUCT = "api/deleteProduct"

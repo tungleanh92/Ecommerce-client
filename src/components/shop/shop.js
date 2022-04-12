@@ -64,15 +64,12 @@ const Shop = () => {
                 <div className="single-product-wrapper">
                     <div className="product-img">
                         <img src={`http://localhost:4000/uploads/${product.image[0].name}`} alt="" />
-                        <img className="hover-img" src={`http://localhost:4000/uploads/${product.image[1].name}`} alt="" />
                     </div>
                     <div className="product-description d-flex align-items-center justify-content-between">
                         <div className="product-meta-data">
                             <div className="line"></div>
                             <p className="product-price">${product.price}</p>
-                            <a href="product-details.html">
-                                <h6>{product.name}</h6>
-                            </a>
+                            <h6>{product.name}</h6>
                         </div>
                         <div className="ratings-cart text-right">
                             <div className="ratings">
