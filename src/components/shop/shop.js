@@ -63,7 +63,7 @@ const Shop = () => {
             <div key={index} className="col-12 col-sm-6 col-md-12 col-xl-6">
                 <div className="single-product-wrapper">
                     <div className="product-img">
-                        <img src={`https://ecommerce-server-pt1t.herokuapp.com/upload/${product.image[0].name}`} alt="" />
+                        <img src={`https://ecommerce-server-pt1t.herokuapp.com/uploads/${product.image[0].name}`} alt="" />
                     </div>
                     <div className="product-description d-flex align-items-center justify-content-between">
                         <div className="product-meta-data">

@@ -25,7 +25,7 @@ const Cart = () => {
                 (
                     <tr key={index}>
                         <td className="cart_product_img">
-                            <img src={`https://ecommerce-server-pt1t.herokuapp.com/upload/${product.image}`} alt="Product" />
+                            <img src={`https://ecommerce-server-pt1t.herokuapp.com/uploads/${product.image}`} alt="Product" />
                         </td>
                         <td className="cart_product_desc">
                             <h5>{product.name}</h5>

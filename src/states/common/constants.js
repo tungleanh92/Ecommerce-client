@@ -1,1 +1,1 @@
-export const URL = "https://ecommerce-server-pt1t.herokuapp.com/upload";
+export const URL = "https://ecommerce-server-pt1t.herokuapp.com";
