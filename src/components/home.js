@@ -40,7 +40,7 @@ const Home = () => {
         var renderProducts = productList.productList.map((product, index) => (
             <div key={index} className="single-products-catagory clearfix">
                 <Link onClick={() => onSelectProduct(product)} to="/product-details">
-                    <img src={`http://localhost:4000/uploads/${product.image[0].name}`} alt="" />
+                    <img src={`https://ecommerce-server-pt1t.herokuapp.com/${product.image[0].name}`} alt="" />
                     {/* <!-- Hover Content --> */}
                     <div className="hover-content">
                         <div className="line"></div>

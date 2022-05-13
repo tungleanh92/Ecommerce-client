@@ -22,13 +22,13 @@ const Product = () => {
     if (selectedProduct.image) {
         var renderProductImgBig = selectedProduct.image.map((img, index) => (
             <li key={index}>
-                <img src={`http://localhost:4000/uploads/${img.name}`} alt="" />
+                <img src={`https://ecommerce-server-pt1t.herokuapp.com/${img.name}`} alt="" />
             </li>
         ))
 
         var renderProductImgSm = selectedProduct.image.map((img, index) => (
             <li key={index}>
-                <img src={`http://localhost:4000/uploads/${img.name}`} alt="" />
+                <img src={`https://ecommerce-server-pt1t.herokuapp.com/${img.name}`} alt="" />
             </li>
         ))
     }
