@@ -1,8 +1,8 @@
 import * as constants from './constants'
-import { callApi } from './../../common/index'
+import { callApi, callApi2 } from './../../common/index'
 
 export const doUpdateProduct = (data) => {
-    return dispatch => callApi(constants.API_UPDATE_PRODUCT, "POST", data, function (res) {
+    return dispatch => callApi2(constants.API_UPDATE_PRODUCT, "POST", data, function (res) {
         dispatch(updateProduct(res));
     });
 }

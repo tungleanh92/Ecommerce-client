@@ -33,6 +33,7 @@ const ProductManage = () => {
     const [selectedColor, setSelectedColor] = useState('')
     const [selectedCategory, setSelectedCategory] = useState('')
     const [selectedBrand, setSelectedBrand] = useState('')
+    const [fileList, setFileList] = useState([])
 
     const dispatch = useDispatch();
 
@@ -66,11 +67,25 @@ const ProductManage = () => {
     }
 
     const onFinish = (values) => {
+        const formData = new FormData()
+        formData.append('name', values.name)
+        formData.append('brand', values.brand)
+        formData.append('category', values.category)
+        formData.append('price', values.price)
+        formData.append('quantity', values.quantity)
+        formData.append('color', values.color)
+        if (values.views) {
+            formData.append('views', values.views.toNumber())
+        }
+        for(let i =0; i < fileList.length; i++) {
+            formData.append("files", fileList[i]);
+        }
+        formData.append('description', values.description)
         if (selectedProduct) {
             values.id = selectedProduct
         }
-        console.log('Success:', values);
-        dispatch(doUpdateProduct(values))
+        console.log(formData.get('image'))
+        dispatch(doUpdateProduct(formData))
     };
 
     const onFinishColor = (values) => {
@@ -94,10 +109,19 @@ const ProductManage = () => {
         dispatch(doUpdateCategory(values))
     };
 
-    const customRequest = ({onSuccess}) => {
-        setTimeout(() => {
-            onSuccess("ok");
-        }, 0);
+    const props = {
+        name: 'file',
+        multiple: true,
+        showUploadList: {
+            showDownloadIcon: false,
+        },
+        beforeUpload: file => {
+            let tmp = fileList;
+            tmp.push(file)
+            setFileList(tmp)
+            return false;
+        },
+        fileList
     }
 
     const getFile = (e) => {
@@ -112,7 +136,6 @@ const ProductManage = () => {
 
     if (productList.productList) {
         var renderProduct = productList.productList.map((product, index) => {
-            console.log(product);
             return (
                 <Option key={product._id}>
                     {product.name}
@@ -215,7 +238,7 @@ const ProductManage = () => {
                                 valuePropName="fileList"
                                 getValueFromEvent={getFile}
                             >
-                                <Upload customRequest={customRequest} listType="picture">
+                                <Upload {...props} listType="picture">
                                     <Button icon={<UploadOutlined />}>Click to upload</Button>
                                 </Upload>
                             </Form.Item>
