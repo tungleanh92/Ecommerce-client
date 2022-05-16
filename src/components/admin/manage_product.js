@@ -2,16 +2,25 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import { getProductByOption } from '../../states/duck/getProduct/actions';
-import { doDeleteProduct, doUpdateBrand, doUpdateCategory, doUpdateColor, doUpdateProduct } from './../../states/duck/manageProduct/actions';
+import { doGetBills } from '../../states/duck/getBills/actions';
+import { doDeleteProduct, doUpdateBrand, doUpdateCategory, doUpdateColor, doUpdateProduct, doSetDelivered } from './../../states/duck/manageProduct/actions';
 import { getCCB } from '../../states/duck/getCCB/actions';
-import { Tabs, Select, Form, Button, Input, Upload, message } from 'antd';
+import { Tabs, Select, Form, Button, Input, Upload, Table, message } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
 const { TabPane } = Tabs;
 const { Option } = Select;
 
-function callback(key) {
-    console.log(key);
+const callback = () => {
+
+}
+
+const calTotal = (items) => {
+    let total = 0
+    for (let item of items ) {
+        total += item.price;
+    }
+    return total
 }
 
 const ProductManage = () => {
@@ -36,6 +45,13 @@ const ProductManage = () => {
     const [fileList, setFileList] = useState([])
 
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(doGetBills({
+            docsPerPage: 10000,
+            skipDocs: 0,
+        }));
+    }, [])
 
     useEffect(() => {
         dispatch(getProductByOption(option))
@@ -133,6 +149,7 @@ const ProductManage = () => {
 
     const productList = useSelector(state => state.getProduct);
     const CCB = useSelector(state => state.getCCB);
+    const bills = useSelector(state => state.getBills);
 
     if (productList.productList) {
         var renderProduct = productList.productList.map((product, index) => {
@@ -161,6 +178,57 @@ const ProductManage = () => {
             <Option key={color._id}>
                 {color.name}
             </Option>
+        ))
+    }
+
+    const columns = [
+        {
+            title: 'Product',
+            dataIndex: 'name',
+            key: 'name',
+        },
+        {
+            title: 'Quantity',
+            dataIndex: 'quantity',
+            key: 'quantity',
+        },
+        {
+            title: 'Price',
+            dataIndex: 'price',
+            key: 'price',
+        },
+    ];
+
+    const onDeliver = (id) => {
+        dispatch(doSetDelivered(id))
+        dispatch(doGetBills({
+            docsPerPage: 10000,
+            skipDocs: 0,
+        }));
+    }
+
+    if (bills.length > 0) {
+        console.log(bills);
+        var renderBills = bills.map((item, index) => (
+            <>
+                <div className="col-4">
+                    <div>First name: {item.firstName}</div>
+                    <div>Last name: {item.lastName}</div>
+                    <div>Company name: {item.companyName}</div>
+                    <div>Email: {item.email}</div>
+                    <div>Country: {item.country}</div>
+                    <div>Town: {item.town}</div>
+                    <div>Address: {item.address}</div>
+                    <div>Zipcode: {item.zipcode}</div>
+                    <div>Phone: {item.phoneNo}</div>
+                    <div>Comment: {item.comment}</div>
+                </div>
+                <div className="col-8">
+                    <Table dataSource={item.cart} columns={columns} pagination={false} />
+                    <div>Total: {calTotal(item.cart)}</div>
+                    <Button onClick={() => onDeliver(item._id)} style={{margin: "30px 0 60px"}}>Deliver</Button>
+                </div>
+            </>
         ))
     }
 
@@ -336,6 +404,13 @@ const ProductManage = () => {
                                 </Button>
                             </Form.Item>
                         </Form>
+                    </TabPane>
+                    <TabPane tab="Bills" key="5">
+                        <div className="container">
+                            <div className="row">
+                                {renderBills}
+                            </div>
+                        </div>
                     </TabPane>
                 </Tabs>
             </div>

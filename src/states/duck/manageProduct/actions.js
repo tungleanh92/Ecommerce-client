@@ -31,6 +31,12 @@ export const doUpdateColor = (data) => {
     });
 }
 
+export const doSetDelivered = (id) => {
+    return dispatch => callApi(constants.API_SET_DELIVERED, "POST", id, function (res) {
+        dispatch(setDelivered(res));
+    });
+}
+
 export const updateProduct = (value) => {
     return {
         type: constants.UPDATE_PRODUCT,
@@ -62,6 +68,13 @@ export const updateColor = (value) => {
 export const updateBrand = (value) => {
     return {
         type: constants.UPDATE_BRAND,
+        value
+    }
+}
+
+export const setDelivered = (value) => {
+    return {
+        type: constants.SET_DELIVERED,
         value
     }
 }

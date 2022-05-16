@@ -17,6 +17,9 @@ const reducer = (state = [], action) => {
         case types.UPDATE_COLOR:
             state = action.value;
             return state;
+        case types.SET_DELIVERED:
+            state = action.value;
+            return state;
         default:
             return state;
     }
