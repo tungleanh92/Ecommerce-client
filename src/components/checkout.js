@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { submitCartForm } from './../states/duck/submitCartForm/actions';
 import { updateCartSidebar } from './../states/duck/updateCartSidebar/actions';
@@ -19,13 +19,19 @@ const validateMessages = {
 const DELIVERY_FEE = 0;
 
 const Checkout = () => {
+    const [totalPrice, setTotalPrice] = useState(0);
     const productInCart = JSON.parse(localStorage.getItem("items"))
-    let totalPrice = 0
-    if (productInCart) {
-        for (let product of productInCart) {
-            totalPrice += product.price;
+    
+    useEffect(() => {
+        if (productInCart) {
+        console.log('triggered!!!');
+            let tmp = 0;
+            for (let product of productInCart) {
+                tmp += product.price * product.quantity;
+            }
+            setTotalPrice(tmp);
         }
-    }
+    }, [productInCart])
 
     const [validatePhoneMessage, setvalidatePhoneMessage] = useState(null);
     const [validateZipcodeMessage, setvalidateZipcodeMessage] = useState(null);
